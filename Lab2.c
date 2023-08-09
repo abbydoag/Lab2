@@ -42,8 +42,8 @@ main ()
 	int matrixa[N],matrixb[N];
 	int i, j;
 	
-	for (i=0; i<N; i++) A[i] = i;
-	for (i=0; i<N; i++) B[i] = i;
+	for (i=0; i<N; i++) matrixa[i] = i;
+	for (i=0; i<N; i++) matrixb[i] = i;
 
 	
 
