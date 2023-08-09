@@ -29,11 +29,9 @@ int productoPunto(int A[], int B[]){
 }
 main ()
 {
-	int matrix[N],[N];
-	int i, j;
 
-	cout << "Ingrese el número de threads (minimo 3, maximo 9): ";
-	cin >> k;
+	int matrixa[N],matrixb[N], matrixc[N];
+	int i, j, k;
 	
 	for (i=0; i<N; i++) A[i] = i;
 	for (i=0; i<N; i++) B[i] = i;
@@ -48,7 +46,7 @@ main ()
 	for (i=0; i<N/10; i++)
 	{
 		printf ("\n");
-		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", A[j]);
+		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", matrixa[j]);
 		printf ("\n");
 	}
 	
@@ -60,7 +58,20 @@ main ()
 	{
 		
 		printf ("\n");
-		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", B[j]);
+		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", matrixb[j]);
+		printf ("\n");
+	}
+	for(i = 0; i < r1; ++i)
+        for(j = 0; j < c2; ++j)
+            for(k = 0; k < c1; ++k)
+            {
+                matrixc[i][j] += matrixa[i][k] * matrixb[k][j];
+            }
+	for (i=0; i<N/3; i++)
+	{
+		
+		printf ("\n");
+		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", B[j]);
 		printf ("\n");
 	}
 	printf ("\n");
