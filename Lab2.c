@@ -13,14 +13,12 @@
 *
 *----------------------------------------*/
 
+#define N 9
 main ()
 {
 
 	int matrix[N],[N];
 	int i, j;
-
-	cout << "Ingrese el número de threads (3 a 9): ";
-	cin >> N;
 	
 	for (i=0; i<N; i++) A[i] = i;
 	for (i=0; i<N; i++) B[i] = i;
@@ -36,10 +34,10 @@ main ()
 	printf (" 0 1 2 3 4 5 6 7 8 9\n");
 	printf ("-----------------------------------------\n");
 	
-	for (i=0; i<N/10; i++)
+	for (i=0; i<N/3; i++)
 	{
 		printf ("\n");
-		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", A[j]);
+		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", A[j]);
 		printf ("\n");
 	}
 	
@@ -47,11 +45,11 @@ main ()
 	printf (" Vector B, interlaced distribution \n\n");
 	printf (" 0 1 2 3 4 5 6 7 8 9\n");
 	printf ("-----------------------------------------\n");
-	for (i=0; i<N/10; i++)
+	for (i=0; i<N/3; i++)
 	{
 		
 		printf ("\n");
-		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", B[j]);
+		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", B[j]);
 		printf ("\n");
 	}
 	printf ("\n");
