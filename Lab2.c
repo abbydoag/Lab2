@@ -12,6 +12,15 @@
 * Corregir código y documentar.
 *
 *----------------------------------------*/
+#ifdef _OPENMP
+#include <omp.h>
+#define TRUE 1
+#define FALSE 0
+
+#else
+#define omp_get_thread_num() 0
+#define omp_get_num_threads() 1
+#endif
 #define N 9
 
 void generateRandom (int k[]){
@@ -30,8 +39,8 @@ int productoPunto(int A[], int B[]){
 main ()
 {
 
-	int matrixa[N],matrixb[N], matrixc[N];
-	int i, j, k;
+	int matrixa[N],matrixb[N];
+	int i, j;
 	
 	for (i=0; i<N; i++) A[i] = i;
 	for (i=0; i<N; i++) B[i] = i;
@@ -59,19 +68,6 @@ main ()
 		
 		printf ("\n");
 		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", matrixb[j]);
-		printf ("\n");
-	}
-	for(i = 0; i < r1; ++i)
-        for(j = 0; j < c2; ++j)
-            for(k = 0; k < c1; ++k)
-            {
-                matrixc[i][j] += matrixa[i][k] * matrixb[k][j];
-            }
-	for (i=0; i<N/3; i++)
-	{
-		
-		printf ("\n");
-		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", B[j]);
 		printf ("\n");
 	}
 	printf ("\n");
