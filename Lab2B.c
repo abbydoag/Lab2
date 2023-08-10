@@ -12,6 +12,9 @@
 * Corregir código y documentar.
 *
 *----------------------------------------*/
+#include <stdio.h>
+#include <omp.h>
+#include <stdlib.h>
 #ifdef _OPENMP
 #include <omp.h>
 #include <stdio.h>
@@ -42,6 +45,7 @@ int main ()
 {
 	int matrixa[N],matrixb[N];
 	int i, j;
+	int loop;
 	
 	for (i=0; i<N; i++) matrixa[i] = i;
 	for (i=0; i<N; i++) matrixb[i] = i;
@@ -54,25 +58,17 @@ int main ()
 
 	// impresion de resultados
 	printf ("\n Vector A, consecutive distribution \n\n");
-	printf (" 0  1  2  3  4  5  6  7  8  9\n");
-	printf ("-----------------------------------------\n");
 	
-	for (i=0; i<N/10; i++)
-	{
-		printf ("\n");
-		for (j=i*10; j<(i+1)*10; j++) printf("%3d ", matrixa[j]);
-		printf ("\n");
-	}
+	
+	for(loop = 0; loop < N; loop++)
+      printf("%d ", matrixa[loop]);
+
 	printf ("\n\n");
 	printf (" Vector B, interlaced distribution \n\n");
-	printf (" 0  1  2  3  4  5  6  7  8  9\n");
-	printf ("-----------------------------------------\n");
-	for (i=0; i<N/10; i++)
-	{		
-		printf ("\n");
-		for (j=i*3; j<(i+1)*3; j++) printf("%3d ", matrixb[j]);
-		printf ("\n");
-	}
+	
+	for(loop = 0; loop < N; loop++)
+      printf("%d ", matrixb[loop]);
+
 	printf ("\n");
     printf("\n\n Producto Punto: %d\n", dotProduct);
     return 0;
